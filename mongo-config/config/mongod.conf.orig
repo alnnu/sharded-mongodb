@@ -25,7 +25,8 @@ net:
 processManagement:
   timeZoneInfo: /usr/share/zoneinfo
 
-#security:
+security:
+  authorization: enabled
 
 #operationProfiling:
 
@@ -38,16 +39,4 @@ sharding:
 ## Enterprise-Only Options:
 
 #auditLog:
-~                                                                                                                                                                                                                   
-~                                                                                                                                                                                                                   
-~                                                                                                                                                                                                                   
-~                                                                                                                                                                                                                   
-~                                                                                                                                                                                                                   
-~                                                                                                                                                                                                                   
-~                                                                                                                                                                                                                   
-~                                                                                                                                                                                                                   
-~                                                                                                                                                                                                                   
-~                                                                                                                                                                                                                  
-~                                                                                                                                                                                                                   
-~                                                                                                                                                                                                                   
-~                                                                                                                                                               
+
