@@ -1,11 +1,5 @@
 #!/bin/bash
-
-docker stop $(docker ps -aq)
-docker network create mongo
-
-docker compose up -d
-
-CONTAINER_ID=$(docker-compose ps -q)
+CONTAINER_ID=$(docker compose ps -q)
 echo "ID do Container: $CONTAINER_ID"
 
 # Esperar até que o Mongo esteja pronto
@@ -19,4 +13,7 @@ done
 
 echo "MongoDB pronto! Conectando..."
 
-docker exec -it $CONTAINER_ID mongosh --eval rs.initiate()
+docker exec -it $CONTAINER_ID mongosh localhost:3000 --eval "sh.addShard(\"shard1/mongo_shard1:27017\")"
+docker exec -it $CONTAINER_ID mongosh localhost:3000 --eval "sh.addShard(\"shard2/mongo_shard2:27017\")"
+docker exec -it $CONTAINER_ID mongosh localhost:3000 --eval "sh.status()"
+

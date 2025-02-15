@@ -1,5 +1,5 @@
 services:
-  mongo:
+  mongo_shard2:
     image: mongo:latest
     container_name: mongo-shard2
     restart: always

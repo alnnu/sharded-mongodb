@@ -6,7 +6,7 @@ services:
     ports:
       - "27020:27017"
     volumes:
-      - "./config/mongod.conf.orig:/etc/mongod.conf.orig"
+      - mongo_data:/data/db
     networks:
       - mongo
 

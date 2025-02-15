@@ -1,11 +1,8 @@
 #!/bin/bash
 
-docker stop $(docker ps -aq)
-docker network create mongo
-
 docker compose up -d
 
-CONTAINER_ID=$(docker-compose ps -q)
+CONTAINER_ID=$(docker compose ps -q)
 echo "ID do Container: $CONTAINER_ID"
 
 # Esperar até que o Mongo esteja pronto
@@ -19,4 +16,6 @@ done
 
 echo "MongoDB pronto! Conectando..."
 
-docker exec -it $CONTAINER_ID mongosh
+docker exec -it $CONTAINER_ID mongos --configdb config/mongo_config:27017 --port 3000
+
+
