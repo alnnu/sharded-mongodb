@@ -3,6 +3,9 @@ services:
     image: mongo:latest
     container_name: mongo-shard2
     restart: always
+    command: ["--replSet", "rs2", "--bind_ip_all", "--port", "27017"]
+    #extra_hosts:
+    #  - "host.docker.internal:host-gateway"
     ports:
       - "27019:27019"
     volumes:

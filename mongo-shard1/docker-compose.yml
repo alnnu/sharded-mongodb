@@ -3,7 +3,7 @@ services:
     image: mongo:latest
     container_name: mongo-shard1
     restart: always
-    command: ["--replSet", "rs1", "--bind_ip_all", "--port", "27018"]
+    command: ["--replSet", "rs1", "--bind_ip_all", "--port", "27017"]
     #extra_hosts:
     #  - "host.docker.internal:host-gateway"
     ports:
