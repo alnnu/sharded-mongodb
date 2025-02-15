@@ -1,15 +1,16 @@
 services:
   mongo:
     image: mongo:latest
-    container_name: mongodb
+    container_name: mongo-shard1
     restart: always
-    environment:
-      MONGO_INITDB_ROOT_USERNAME: admin
-      MONGO_INITDB_ROOT_PASSWORD: password
+    command: ["--replSet", "rs1", "--bind_ip_all", "--port", "27018"]
+    #extra_hosts:
+    #  - "host.docker.internal:host-gateway"
     ports:
-      - "27017:27017"
+      - "27018:27018"
     volumes:
       - mongo_data:/data/db
+      - "./config/mongod.conf.orig:/etc/mongod.conf.orig"
 volumes:
   mongo_data:
     driver: local
