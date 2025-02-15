@@ -3,14 +3,13 @@ services:
     image: mongo:latest
     container_name: mongo-shard1
     restart: always
-    command: ["--replSet", "rs1", "--bind_ip_all"]
+    command: ["--replSet", "shard1", "--bind_ip_all", "--shardsvr", "--port", "27017"]
     #extra_hosts:
     #  - "host.docker.internal:host-gateway"
     ports:
       - "27018:27017"
     volumes:
       - mongo_data:/data/db
-      - "./config/mongod.conf.orig:/etc/mongod.conf.orig"
     networks:
       - mongo
 
