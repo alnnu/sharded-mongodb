@@ -15,5 +15,8 @@ echo "MongoDB pronto! Conectando..."
 
 docker exec -it $CONTAINER_ID mongosh localhost:3000 --eval "sh.addShard(\"shard1/mongo_shard1:27017\")"
 docker exec -it $CONTAINER_ID mongosh localhost:3000 --eval "sh.addShard(\"shard2/mongo_shard2:27017\")"
-docker exec -it $CONTAINER_ID mongosh localhost:3000 --eval "sh.status()"
+docker exec -it $CONTAINER_ID mongosh localhost:3000 --eval "sh.enableSharding(\"populations\")"
+docker exec -it $CONTAINER_ID mongosh localhost:3000 --eval "sh.shardCollection(\"populations.cities\", { \"country\": \"hashed\" })"
+
+
 
