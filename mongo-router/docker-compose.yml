@@ -8,9 +8,6 @@ services:
     networks:
       - mongo
 
-volumes:
-  mongo_data:
-    driver: local
 networks:
   mongo:
     external: true
