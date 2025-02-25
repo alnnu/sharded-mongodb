@@ -1,3 +1,5 @@
+>> docker compose exec mongo_router mongosh localhost:3000
+
 use populations
 
 db.cities.insertMany([
